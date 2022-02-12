@@ -3,7 +3,7 @@ TODO
 
 # Setup
 - Clone the repository
-- Inside the `src` folder add a .env file with the server URL e.g.
+- Inside the root folder add a .env file with the server URL e.g.
 ```
 REACT_APP_SERVER=http://localhost:8080
 ```
@@ -21,9 +21,10 @@ REACT_APP_SERVER=http://localhost:8080
 - I am not adding any dependencies to keep the app simple and easy to review
 - If this was my a greenfield project I would add the following:
   - StyledComponents - improve organization of styles
-  - D3 or Visx - add better visualizations of the data
+  - D3 or Visx - simplify working with SVGs for data visualization
   - FramerMotion - more advanced, composible animations
-  - Commitizen, Husky - git hooks and commit messages
+  - Commitizen, Husky - git hooks and standard commit messages
+  - dotenv - make it easy to attach .env vars to node server process.env
 
 ### Styling
 - Since I don't have access to UBS's style guide or fonts, I'm using my own theme & font choices
