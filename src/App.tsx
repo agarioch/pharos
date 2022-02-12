@@ -1,11 +1,6 @@
-import React from "react";
+import React from 'react';
+import { Dashboard } from './pages';
 
-function App() {
-  return (
-    <div>
-      <h1>Pharos Coding Exercise</h1>
-    </div>
-  );
-}
+const App = () => <Dashboard />;
 
 export default App;
