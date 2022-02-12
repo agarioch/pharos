@@ -1,0 +1,14 @@
+.wrapper {
+  background-color: var(--white);
+  border-radius: 4px;
+  padding: .5rem 2rem;
+}
+.label {
+  color: var(--grey-600);
+  font-size: 0.6rem;
+  margin-left: .5rem;
+  text-transform: uppercase;
+}
+.name {
+  font-size: 1.1rem;
+}

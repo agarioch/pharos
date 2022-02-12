@@ -39,6 +39,7 @@ p, h1, h2, h3, h4, h5, h6 {
   --primary-800: hsl(226, 71%, 40%);
   --primary-900: hsl(224, 64%, 33%);
 
+  --white: hsl(210, 0%, 100%);
   --grey-50: hsl(210, 20%, 98%);
   --grey-100: hsl(204, 45%, 98%);
   --grey-200: hsl(210, 38%, 95%);
@@ -65,3 +66,7 @@ html {
   color: var(--grey-800);
   font-family: 'Lato', Arial, Helvetica, sans-serif;
 }
+h1, h2, h3, h4, h5, h6 {
+  font-size: 1.1rem;
+}
+

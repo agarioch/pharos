@@ -1,5 +1,7 @@
-const URL = String(process.env.REACT_APP_SERVER_URL);
+import { Application } from "./types";
 
+const URL = process.env.REACT_APP_SERVER;
+console.log(URL)
 type options = {};
 
 async function fetchRequest(path: string, options?: options) {
@@ -13,10 +15,11 @@ async function fetchRequest(path: string, options?: options) {
   } catch (err) {
     //! send error message to logging platform
     console.log(err);
+    return Promise.reject(err)
   }
 }
 
-export function getData() {
+export function getData(): Promise<Application[]> {
   return fetchRequest('/data');
 }
 
