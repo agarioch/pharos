@@ -1,8 +1,8 @@
 import { ApplicationCard } from '..';
-import { Application } from '../../pages/Dashboard/types';
+import { Application } from '../../types';
 import styles from './ApplicationList.module.css';
 
-const MAX_CARDS = 10;
+const MAX_CARDS = 20;
 const ApplicationList = ({ applications }: { applications: Application[] }) => {
   const applicationCards = applications
     .sort((a, b) => b.spend - a.spend)

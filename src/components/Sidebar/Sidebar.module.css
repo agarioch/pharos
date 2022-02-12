@@ -1,0 +1,8 @@
+.sidebar {
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  /* sit below header box-shadow */
+  z-index: -1;
+}

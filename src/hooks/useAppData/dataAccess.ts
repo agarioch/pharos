@@ -1,4 +1,4 @@
-import { Application } from "./types";
+import { Application } from "../../types";
 
 const URL = process.env.REACT_APP_SERVER;
 console.log(URL)

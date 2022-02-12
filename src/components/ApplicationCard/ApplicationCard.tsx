@@ -1,4 +1,4 @@
-import { Application } from '../../pages/Dashboard/types';
+import { Application } from '../../types';
 import { formatSpend } from '../../utils';
 import styles from './ApplicationCard.module.css';
 
