@@ -1,5 +1,11 @@
 import { useState } from 'react';
-import { Sidebar, ApplicationList, SpendSummary } from '../../components';
+import {
+  Sidebar,
+  ApplicationList,
+  SpendSummary,
+  NavigationTree,
+  SpendFilter,
+} from '../../components';
 import { useAppData } from '../../hooks';
 import styles from './Dashboard.module.css';
 
@@ -21,14 +27,31 @@ const Dashboard = () => {
       (app) => app.spend > minSpend
     );
 
+  const handleResetFilters = () => {
+    setMinSpend(0);
+    setSelectedBCAP(null);
+  };
+
   return (
     <main className={styles.dashboard}>
-      <Sidebar
-        applications={appData}
-        setSelectedBCAP={setSelectedBCAP}
-        minSpend={minSpend}
-        setMinSpend={setMinSpend}
-      />
+      <Sidebar>
+        <div>
+          <NavigationTree
+            applications={appData}
+            selectedBCAP={selectedBCAP}
+            setSelectedBCAP={setSelectedBCAP}
+          />
+          <SpendFilter
+            min={0}
+            max={100000}
+            minSpend={minSpend}
+            setMinSpend={setMinSpend}
+          />
+          <button className="button secondary" onClick={handleResetFilters}>
+            Clear Filters
+          </button>
+        </div>
+      </Sidebar>
       <div className={styles.mainContent}>
         <SpendSummary
           selection={selectedBCAP ?? 'All'}

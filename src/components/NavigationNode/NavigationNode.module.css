@@ -2,7 +2,14 @@
   background-color: transparent;
   border: none;
   border-radius: 4px;
+  transition: transform .3s;
 }
 .navButton:hover {
   background-color: var(--grey-100);
+}
+.navButtonExpanded {
+  transform: rotate(90deg);
+}
+.navButtonSelected {
+  color: var(--primary-800);
 }

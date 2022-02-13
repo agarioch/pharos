@@ -7,6 +7,7 @@ type NavigationNodeProps = {
   name: string;
   level: number;
   nodes: Application[];
+  selectedBCAP: string | null;
   setSelectedBCAP: React.Dispatch<React.SetStateAction<string | null>>;
 };
 
@@ -14,6 +15,7 @@ const NavigationNode = ({
   name,
   level,
   nodes,
+  selectedBCAP,
   setSelectedBCAP,
 }: NavigationNodeProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -33,14 +35,20 @@ const NavigationNode = ({
       {childNodes.length > 0 && (
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className={styles.navButton}
+          className={`${styles.navButton} ${
+            isExpanded && styles.navButtonExpanded
+          }`}
         >
-          {'>'}
+          <span>▸</span>
         </button>
       )}
       <button
         type="button"
-        className={styles.navButton}
+        className={`${styles.navButton} ${
+          selectedBCAP &&
+          name.startsWith(selectedBCAP) &&
+          styles.navButtonSelected
+        }`}
         onClick={() => {
           setSelectedBCAP((prior) => (prior === name ? null : name));
         }}
@@ -59,6 +67,7 @@ const NavigationNode = ({
                   (child) =>
                     child[childLevel] && child[childLevel].startsWith(bcap)
                 )}
+                selectedBCAP={selectedBCAP}
                 setSelectedBCAP={setSelectedBCAP}
               />
             );
