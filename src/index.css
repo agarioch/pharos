@@ -150,32 +150,32 @@ input[type=range]::-ms-track {
 /* Special styling for WebKit/Blink */
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  border: 1px solid var(--primary-600);
+  border: 1px solid var(--primary-800);
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background: var(--primary-600);
+  background: var(--primary-800);
   cursor: pointer;
   margin-top: -7px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
 }
 
 /* All the same stuff for Firefox */
 input[type=range]::-moz-range-thumb {
-  border: 1px solid var(--primary-600);
+  border: 1px solid var(--primary-800);
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background: var(--primary-600);
+  background: var(--primary-800);
   cursor: pointer;
 }
 
 /* All the same stuff for IE */
 input[type=range]::-ms-thumb {
-  border: 1px solid var(--primary-600);
+  border: 1px solid var(--primary-800);
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background: var(--primary-600);
+  background: var(--primary-800);
   cursor: pointer;
 }
 

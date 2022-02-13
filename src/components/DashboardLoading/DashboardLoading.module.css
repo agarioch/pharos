@@ -1,0 +1,23 @@
+.placeholder {
+  display: grid;
+  height: calc(100% - 80px);
+  justify-items: center;
+  place-content: center;
+}
+.spinner {
+  position: relative;
+  animation: spin 1.2s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loadingText {
+  color: var(--grey-700);
+  margin-top: 1rem;
+}

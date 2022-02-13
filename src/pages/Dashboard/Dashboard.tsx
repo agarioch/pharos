@@ -5,11 +5,12 @@ import {
   SpendSummary,
   NavigationTree,
   SpendFilter,
+  DashboardLoading,
 } from '../../components';
 import { useAppData } from '../../hooks';
 import styles from './Dashboard.module.css';
 
-//! NOTE: these should be derived based on the data in a real app, using constants for simplicity here
+//! NOTE: min/max spend should be derived based on the data in a real app, hardcoding for simplicity
 const MIN_SPEND = 0;
 const MAX_SPEND = 100000;
 
@@ -24,7 +25,7 @@ const Dashboard = () => {
     maxSpend,
   });
 
-  if (isLoading) return <h1>Todo: render loading component</h1>;
+  if (isLoading) return <DashboardLoading />;
   if (isError || appData.length === 0)
     return <h1>Todo: handle error, no server response</h1>;
 
