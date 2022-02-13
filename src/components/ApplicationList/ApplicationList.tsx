@@ -2,11 +2,21 @@ import { ApplicationCard } from './components';
 import { Application } from '../../types';
 import styles from './ApplicationList.module.css';
 
-const ApplicationList = ({ applications }: { applications: Application[] }) => {
+const ApplicationList = ({
+  applications,
+  isShowingDetails,
+}: {
+  applications: Application[];
+  isShowingDetails: boolean;
+}) => {
   const applicationCards = applications
     .sort((a, b) => b.spend - a.spend)
     .map((application) => (
-      <ApplicationCard key={application.id} application={application} />
+      <ApplicationCard
+        key={application.id}
+        application={application}
+        isShowingDetails={isShowingDetails}
+      />
     ));
   //TODO: show how many cards displayed vs. total cards & allow pagination
   return <div className={styles.applicationList}>{applicationCards}</div>;

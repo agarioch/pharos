@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { getData } from './dataAccess';
 import { Application } from '../../types';
+import addCalculatedProperties from './addCalculatedProperties';
 
 const useAppData = ({
   selectedBCAP,
@@ -17,6 +18,9 @@ const useAppData = ({
 
   useEffect(() => {
     getData()
+      // calculating % total spend & a random % variance to budget or prior year et.
+      //! NOTE: in a real application I would calc and add these properties in server response
+      .then((data) => addCalculatedProperties(data))
       .then((data) => {
         setAppData(data);
       })

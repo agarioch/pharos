@@ -18,6 +18,7 @@ const Dashboard = () => {
   const [selectedBCAP, setSelectedBCAP] = useState<string>('');
   const [minSpend, setMinSpend] = useState(MIN_SPEND);
   const [maxSpend, setMaxSpend] = useState(MAX_SPEND);
+  const [isShowingDetails, setIsShowingDetails] = useState(false);
 
   const { applications, appData, isLoading, isError } = useAppData({
     selectedBCAP,
@@ -94,8 +95,18 @@ const Dashboard = () => {
           selection={selectedBCAP ?? 'All'}
           selectedSpend={applications.reduce((acc, app) => acc + app.spend, 0)}
           totalSpend={appData.reduce((acc, app) => acc + app.spend, 0)}
+        >
+          <button
+            className="button tertiary"
+            onClick={() => setIsShowingDetails(!isShowingDetails)}
+          >
+            {isShowingDetails ? '- Hide Details' : '+ Show Details'}
+          </button>
+        </SpendSummary>
+        <ApplicationList
+          applications={applications}
+          isShowingDetails={isShowingDetails}
         />
-        <ApplicationList applications={applications} />
       </div>
     </main>
   );

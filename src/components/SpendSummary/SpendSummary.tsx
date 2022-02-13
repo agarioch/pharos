@@ -5,10 +5,12 @@ const SpendSummary = ({
   selection,
   selectedSpend,
   totalSpend,
+  children,
 }: {
   selection: string;
   selectedSpend: number;
   totalSpend: number;
+  children?: React.ReactNode;
 }) => (
   <div className={styles.wrapper}>
     <h2 className={styles.header}>
@@ -24,6 +26,7 @@ const SpendSummary = ({
         ({Math.round((selectedSpend / totalSpend) * 100)}% of Total){' '}
       </span>
     </h2>
+    {children}
   </div>
 );
 

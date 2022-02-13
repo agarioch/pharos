@@ -120,6 +120,11 @@ li {
 .button.secondary:active {
   background-color: var(--primary-100);
 }
+.button.tertiary {
+  background-color: transparent;
+  border: none;
+  color: var(--primary-800);
+}
 
 /* Input slider styles */
 

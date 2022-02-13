@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-//! NOTE: Normally I would move config to a .env file,
+//! NOTE: Normally I would move config to a .env file
 const PORT = 8080;
 const CLIENT = 'http://localhost:3000';
 
@@ -15,7 +15,7 @@ app.use((req, res, next) => {
   next();
 });
 
-//! NOTE: normally I would follow a MVC pattern for the server with routes, & controllers in separate folders,
+//! NOTE: normally I would follow a MVC pattern for the server with routes, & controllers in separate folders
 // Routes
 app.get('/data', (req, res) => {
   res.json(data);
