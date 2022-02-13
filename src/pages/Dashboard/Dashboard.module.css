@@ -6,3 +6,10 @@
 .mainContent {
   padding: 32px;
 }
+.controls {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: auto;
+}

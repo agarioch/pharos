@@ -9,10 +9,14 @@ import {
 import { useAppData } from '../../hooks';
 import styles from './Dashboard.module.css';
 
+//! NOTE: these should be derived based on the data in a real app, using constants for simplicity here
+const MIN_SPEND = 0;
+const MAX_SPEND = 100000;
+
 const Dashboard = () => {
   const [selectedBCAP, setSelectedBCAP] = useState<string>('');
-  const [minSpend, setMinSpend] = useState(0);
-  const [maxSpend, setMaxSpend] = useState(100000);
+  const [minSpend, setMinSpend] = useState(MIN_SPEND);
+  const [maxSpend, setMaxSpend] = useState(MAX_SPEND);
 
   const { applications, appData, isLoading, isError } = useAppData({
     selectedBCAP,
@@ -25,9 +29,19 @@ const Dashboard = () => {
     return <h1>Todo: handle error, no server response</h1>;
 
   const handleResetFilters = () => {
-    setMinSpend(0);
+    setMinSpend(MIN_SPEND);
     setSelectedBCAP('');
-    setMaxSpend(100000);
+    setMaxSpend(MAX_SPEND);
+  };
+  const handleSavefilters = () => {
+    window.localStorage.setItem('selectedBCAP', selectedBCAP);
+    window.localStorage.setItem('minSpend', String(minSpend));
+    window.localStorage.setItem('maxSpend', String(maxSpend));
+  };
+  const handleLoadSavedFilters = () => {
+    setSelectedBCAP(window.localStorage.getItem('selectedBCAP') ?? '');
+    setMinSpend(Number(window.localStorage.getItem('minSpend')));
+    setMaxSpend(Number(window.localStorage.getItem('maxSpend')));
   };
 
   return (
@@ -43,24 +57,35 @@ const Dashboard = () => {
             <h2>Filters</h2>
             <SpendFilter
               label="Minimum spend"
-              min={0}
-              max={100000}
+              min={MIN_SPEND}
+              max={MAX_SPEND}
               step={10000}
               value={minSpend}
               setValue={setMinSpend}
             />
             <SpendFilter
               label="Maximum spend"
-              min={0}
-              max={100000}
+              min={MIN_SPEND}
+              max={MAX_SPEND}
               step={10000}
               value={maxSpend}
               setValue={setMaxSpend}
             />
           </section>
-          <button className="button secondary" onClick={handleResetFilters}>
-            Clear Filters
-          </button>
+          <div className={styles.controls}>
+            <button className="button" onClick={handleResetFilters}>
+              Clear Filters
+            </button>
+            <button className="button secondary" onClick={handleSavefilters}>
+              Save Filters
+            </button>
+            <button
+              className="button secondary"
+              onClick={handleLoadSavedFilters}
+            >
+              Load Saved Filters
+            </button>
+          </div>
         </div>
       </Sidebar>
       <div className={styles.mainContent}>

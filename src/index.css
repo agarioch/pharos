@@ -67,7 +67,10 @@ html {
   color: var(--grey-800);
   font-family: 'Lato', Arial, Helvetica, sans-serif;
 }
-h1, h2, h3, h4, h5, h6 {
+h1 {
+  font-size: 1.2rem;
+}
+h2, h3, h4, h5, h6 {
   font-size: 1.1rem;
 }
 ul {
@@ -90,7 +93,7 @@ li {
   border-radius: 4px;
   color: var(--primary-bg);
   cursor: pointer;
-  padding: .5rem;
+  padding: .2rem .5rem;
   transition: background-color .6s;
 }
 .button:hover {
