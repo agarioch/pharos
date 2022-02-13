@@ -6,6 +6,7 @@
   display: flex;
   height: 60px;
   padding: 0 2rem;
+  position: relative;
 }
 .logo {
   color: var(--grey-700);

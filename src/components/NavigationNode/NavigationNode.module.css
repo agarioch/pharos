@@ -1,0 +1,8 @@
+.navButton {
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+}
+.navButton:hover {
+  background-color: var(--grey-100);
+}

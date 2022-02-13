@@ -69,6 +69,16 @@ html {
 h1, h2, h3, h4, h5, h6 {
   font-size: 1.1rem;
 }
+ul {
+  padding-left: 0;
+}
+ul ul {
+  padding-left: 10px;
+}
+li {
+  list-style: none;
+  padding-left: 0;
+}
 #root {
   height: 100%;
 }

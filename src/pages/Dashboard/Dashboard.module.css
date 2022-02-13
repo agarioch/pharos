@@ -3,3 +3,6 @@
   grid-template-columns: 300px 1fr;
   height: calc(100% - 60px);
 }
+.mainContent {
+  padding: 32px;
+}
