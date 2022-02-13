@@ -1,6 +1,12 @@
+section {
+  width: 100%;
+}
+
 .sidebar {
+  align-items: flex-start;
   background-color: var(--white);
   display: flex;
   flex-direction: column;
   padding: 1rem 2rem;
+  width: 100%;
 }

@@ -2,11 +2,11 @@ import { ApplicationCard } from '..';
 import { Application } from '../../types';
 import styles from './ApplicationList.module.css';
 
-const MAX_CARDS = 20;
+// const MAX_CARDS = 20;
 const ApplicationList = ({ applications }: { applications: Application[] }) => {
   const applicationCards = applications
     .sort((a, b) => b.spend - a.spend)
-    .slice(0, MAX_CARDS)
+    // .slice(0, MAX_CARDS)
     .map((application) => (
       <ApplicationCard key={application.id} application={application} />
     ));

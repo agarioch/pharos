@@ -1,0 +1,14 @@
+section {
+  width: 100%;
+}
+.sliderWrapper {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.sliderLabel {
+  color: var(--grey-600);
+  text-align: end;
+  width: 10rem;
+}
