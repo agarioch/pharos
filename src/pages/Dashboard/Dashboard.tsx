@@ -10,26 +10,20 @@ import { useAppData } from '../../hooks';
 import styles from './Dashboard.module.css';
 
 const Dashboard = () => {
-  const { appData, isLoading, isError } = useAppData();
-  const [selectedBCAP, setSelectedBCAP] = useState<string | null>(null);
+  const [selectedBCAP, setSelectedBCAP] = useState<string>('');
   const [minSpend, setMinSpend] = useState<number>(0);
+  const { applications, appData, isLoading, isError } = useAppData({
+    selectedBCAP,
+    minSpend,
+  });
 
   if (isLoading) return <h1>Todo: render loading component</h1>;
   if (isError || appData.length === 0)
     return <h1>Todo: handle error, no server response</h1>;
 
-  let filteredApplications = selectedBCAP
-    ? appData.filter((app) => app.BCAP3.startsWith(selectedBCAP))
-    : appData;
-
-  if (minSpend)
-    filteredApplications = filteredApplications.filter(
-      (app) => app.spend > minSpend
-    );
-
   const handleResetFilters = () => {
     setMinSpend(0);
-    setSelectedBCAP(null);
+    setSelectedBCAP('');
   };
 
   return (
@@ -55,9 +49,9 @@ const Dashboard = () => {
       <div className={styles.mainContent}>
         <SpendSummary
           selection={selectedBCAP ?? 'All'}
-          spend={filteredApplications.reduce((acc, app) => acc + app.spend, 0)}
+          spend={applications.reduce((acc, app) => acc + app.spend, 0)}
         />
-        <ApplicationList applications={filteredApplications} />
+        <ApplicationList applications={applications} />
       </div>
     </main>
   );

@@ -1,17 +1,17 @@
-import { NavigationNode } from '..';
+import { NavigationNode } from './components';
 import { Application } from '../../types';
 
-type NavigationTreeProps = {
+type Props = {
   applications: Application[];
-  selectedBCAP: string | null;
-  setSelectedBCAP: React.Dispatch<React.SetStateAction<string | null>>;
+  selectedBCAP: string;
+  setSelectedBCAP: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const NavigationTree = ({
   applications,
   selectedBCAP,
   setSelectedBCAP,
-}: NavigationTreeProps) => {
+}: Props) => {
   //! NOTE: In a real app I would import the master data from the relevant database vs. derive from data on each render
   const BCAP1: string[] = [
     ...new Set(applications.map((app) => app.BCAP1)),

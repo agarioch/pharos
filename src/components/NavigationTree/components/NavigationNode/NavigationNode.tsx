@@ -1,15 +1,19 @@
 import { useMemo } from 'react';
 import { useState } from 'react';
-import { Application } from '../../types';
+import { Application } from '../../../../types';
 import styles from './NavigationNode.module.css';
 
-type NavigationNodeProps = {
+type Props = {
   name: string;
   level: number;
   nodes: Application[];
-  selectedBCAP: string | null;
-  setSelectedBCAP: React.Dispatch<React.SetStateAction<string | null>>;
+  selectedBCAP: string;
+  setSelectedBCAP: React.Dispatch<React.SetStateAction<string>>;
 };
+
+type Bcap = 'BCAP1' | 'BCAP2' | 'BCAP3';
+
+const getLevelName = (level: number) => `BCAP${level}` as Bcap;
 
 const NavigationNode = ({
   name,
@@ -17,7 +21,7 @@ const NavigationNode = ({
   nodes,
   selectedBCAP,
   setSelectedBCAP,
-}: NavigationNodeProps) => {
+}: Props) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   // Get any children e.g. where BCAP3 belongs to current node BCAP2
@@ -50,7 +54,7 @@ const NavigationNode = ({
           styles.navButtonSelected
         }`}
         onClick={() => {
-          setSelectedBCAP((prior) => (prior === name ? null : name));
+          setSelectedBCAP((prior) => (prior === name ? '' : name));
         }}
       >
         {name}
@@ -77,9 +81,5 @@ const NavigationNode = ({
     </li>
   );
 };
-
-function getLevelName(level: number): 'BCAP1' | 'BCAP2' | 'BCAP3' {
-  return `BCAP${level}` as 'BCAP1' | 'BCAP2' | 'BCAP3';
-}
 
 export default NavigationNode;

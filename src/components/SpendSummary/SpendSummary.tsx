@@ -7,18 +7,16 @@ const SpendSummary = ({
 }: {
   selection: string;
   spend: number;
-}) => {
-  return (
-    <h2 className={styles.spendSummary}>
-      Total Spend: {selection} applications{' '}
-      <span>
-        {formatSpend(spend, {
-          notation: 'compact',
-          maximumSignificantDigits: 2,
-        })}
-      </span>
-    </h2>
-  );
-};
+}) => (
+  <h2 className={styles.spendSummary}>
+    Total Spend: {selection} applications{' '}
+    <span>
+      {formatSpend(spend, {
+        notation: 'compact',
+        maximumSignificantDigits: 2,
+      })}
+    </span>
+  </h2>
+);
 
 export default SpendSummary;
