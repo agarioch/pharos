@@ -18,7 +18,6 @@ const ApplicationList = ({
         isShowingDetails={isShowingDetails}
       />
     ));
-  //TODO: show how many cards displayed vs. total cards & allow pagination
   return <div className={styles.applicationList}>{applicationCards}</div>;
 };
 

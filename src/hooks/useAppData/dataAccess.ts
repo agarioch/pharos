@@ -1,7 +1,6 @@
 import { Application } from "../../types";
 
-const URL = process.env.REACT_APP_SERVER;
-console.log(URL)
+const URL = process.env.REACT_APP_SERVER || 'http://localhost:8080';
 type options = {};
 
 async function fetchRequest(path: string, options?: options) {

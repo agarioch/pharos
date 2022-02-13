@@ -28,7 +28,13 @@ const Dashboard = () => {
 
   if (isLoading) return <DashboardLoading />;
   if (isError || appData.length === 0)
-    return <h1>Todo: handle error, no server response</h1>;
+    return (
+      <h1>
+        An error occurred when loading the application data. The error has been
+        automatically reported, please contact support@example.com for further
+        guidance.
+      </h1>
+    );
 
   const handleResetFilters = () => {
     setMinSpend(MIN_SPEND);

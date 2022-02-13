@@ -10,8 +10,17 @@
 }
 .logo {
   color: var(--grey-700);
-  flex: 1;
   font-size: 1rem;
+}
+.logoIcon {
+  width: 24px; 
+  height: 24px; 
+  fill: var(--grey-800);
+}
+.logoWrapper {
+  align-items: center;
+  display: flex;
+  flex: 1;
 }
 .filler {
   flex: 1;
