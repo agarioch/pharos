@@ -1,4 +1,17 @@
-.spendSummary {
-  margin-left: 2rem;
+.wrapper {
+  border-bottom: 1px solid var(--grey-300);
   margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+.header {
+  font-weight: normal;
+}
+.total {
+  color: var(--primary-800);
+  margin-left: .5rem;
+}
+.info {
+  color:  var(--grey-600);
+  font-size: 0.8rem;
+  margin-left: .5rem;
 }

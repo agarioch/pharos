@@ -2,28 +2,29 @@ import { formatSpend } from '../../utils';
 import styles from './SpendFilter.module.css';
 
 type Props = {
+  label: string;
   min: number;
   max: number;
-  minSpend: number;
-  setMinSpend: React.Dispatch<React.SetStateAction<number>>;
+  step: number;
+  value: number;
+  setValue: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const SpendFilter = ({ min, max, minSpend, setMinSpend }: Props) => (
-  <section>
-    <h2>Filters</h2>
-    <p>Minimum Spend</p>
+const SpendFilter = ({ label, min, max, step, value, setValue }: Props) => (
+  <>
+    <p>{label}</p>
     <div className={styles.sliderWrapper}>
       <input
         type="range"
         min={min}
         max={max}
-        step={1000}
-        value={minSpend}
-        onChange={(event) => setMinSpend(Number(event.target.value))}
+        step={step}
+        value={value}
+        onChange={(event) => setValue(Number(event.target.value))}
       />
-      <span className={styles.sliderLabel}>{formatSpend(minSpend)}</span>
+      <span className={styles.sliderLabel}>{formatSpend(value)}</span>
     </div>
-  </section>
+  </>
 );
 
 export default SpendFilter;

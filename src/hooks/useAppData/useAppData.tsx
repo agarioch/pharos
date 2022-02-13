@@ -5,9 +5,11 @@ import { Application } from '../../types';
 const useAppData = ({
   selectedBCAP,
   minSpend,
+  maxSpend,
 }: {
   selectedBCAP: string;
   minSpend: number;
+  maxSpend: number;
 }) => {
   const [appData, setAppData] = useState<Application[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -25,9 +27,12 @@ const useAppData = ({
   const applications = useMemo(
     () =>
       appData.filter(
-        (app) => app.BCAP3.startsWith(selectedBCAP) && app.spend > minSpend
+        (app) =>
+          app.BCAP3.startsWith(selectedBCAP) &&
+          app.spend > minSpend &&
+          app.spend < maxSpend
       ),
-    [appData, selectedBCAP, minSpend]
+    [appData, selectedBCAP, minSpend, maxSpend]
   );
 
   return { appData, isLoading, isError, applications };
