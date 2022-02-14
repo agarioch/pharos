@@ -8,7 +8,7 @@ Application to track and explore spend on applications by business capability.
 ![Pharos Coding Exercise screenshot](/pharos-screenshot.png)
 
 # Setup
-- Check you have NPM and Node installed (preferably LTS version)
+- Check you have NPM and Node installed (preferably LTS version, using v17 may cause issues with react-scripts)
 - Clone the repository
 - Inside the root folder add a .env file with the server URL e.g.
 ```
@@ -17,7 +17,7 @@ REACT_APP_SERVER=http://localhost:8080
 - `npm install` from the root folder
 - `npm start` from the root folder to run in development mode
 
-> Note: React Scripts 4.0.3 has an issue when hot-reloading with some versions of webpack. https://github.com/facebook/create-react-app/issues/11773. Error fixed on my environment by updating package.json with "react-error-overlay": "6.0.9".  
+> Note: React Scripts 4.0.3 has an issue when hot-reloading with some versions of node. https://github.com/facebook/create-react-app/issues/11773. Error fixed on my environment by updating package.json with "react-error-overlay": "6.0.9".  
 
 # Assumptions & Notes For Reviewers
 
