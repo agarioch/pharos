@@ -5,7 +5,10 @@ Application to track and explore spend on applications by business capability.
 - Load previously saved filters (relies on local storage)
 - Show and hide additional application details
 
+![Pharos Coding Exercise screenshot](/pharos-screenshot.png)
+
 # Setup
+- Check you have NPM and Node installed (preferably LTS version)
 - Clone the repository
 - Inside the root folder add a .env file with the server URL e.g.
 ```

@@ -19,7 +19,6 @@
     "web-vitals": "^1.1.1"
   },
   "scripts": {
-    "preinstall": "npx npm-force-resolutions",
     "start": "concurrently \"node server.js\" \"react-scripts start\"",
     "dev:server": "npx nodemon server.js",
     "dev:client": "react-scripts start",
