@@ -1,37 +1,40 @@
-# Pharos Coding Exercise
+# Application Overview
+Application to track and explore spend on applications by business capability.
+- Tree navigation to filter by business capability
+- Filters to restrict data based on a spend threshold
+- Load previously saved filters (relies on local storage)
+- Show and hide additional application details
 
-This exercise is to help us better understand your experience in react and typescript, how you would go about structuring your work, code quality, styles, etc...
+# Setup
+- Clone the repository
+- Inside the root folder add a .env file with the server URL e.g.
+```
+REACT_APP_SERVER=http://localhost:8080
+```
+- `npm install` from the root folder
+- `npm start` from the root folder
 
-## Setup
+> Note: React Scripts 4.0.3 has an issue when hot-reloading with some versions of webpack. https://github.com/facebook/create-react-app/issues/11773. Error fixed on my environment by updating package.json with "react-error-overlay": "6.0.9".  
 
-To get started, install the dependencies with `npm install`.
+# Assumptions & Notes For Reviewers
 
-Run the application with `npm start`.
+Due to time constraints I simplified or descoped some areas I would normally spend more time on:
 
-Launch application in browser at [http://localhost:3000](http://localhost:3000).
+### Testing
+- Tests: deprioritized testing as there won't be changes to this application in the future
 
+### Styles
+- Theme: I used my own theme and did not follow the UBS style guide as I don't have access to any of the design guides or assets
+- Responsiveness: The app has a fluid layout and should work well on desktop/laptop/table screen sizes but the fixed width sidebar will prevent it from working well on mobile. If I were to spend longer on this app I'd move the sidebar to a slideout menu on mobile sizes.
 
-## Task
+### API
+- Server: I focused on developing the client and did not attempt to refactor or enhance the server
+- Data Volumes: Assuming volume of data will not increase beyond the current size of `data.json`
+> Note: If the volume of data were to grow I would not import the entire dataset when loading the application. I would update the server to include enpoints to provide summary data and paginated/filtered details. I would also test the UI with a larger number of BCs and applications
 
-We would like you build a simple data explorer as shown in the image below. This is just a wireframe guide to get you started, you may style it in any way you like to improve the design and UX.
-
-
-![Pharos Coding Exercise wireframe](/pharos-coding-exercise.png)
-
-
-The data is a list of application records and is fetchable at `/data`. Each application has 3 levels of business capabilities. Business capabilities are hierarchical as shown in the image (Business capability 1 -> Business capability 2 -> Business capability 3)
-Important: Use the data file provided
-
-The app should -
-
-- Requests the dataset.
-- Build a hierarchical navigation tree displaying the different levels of business capabilities. Bonus points if we can expand/collapse the navigation tree.
-- Have a range slider to be able to further filter the dataset based on the total spending value
-- Present a list of applications from the data set, showing name and total spend. The list depends on the navigation tree and the range filter 
-
-Additional notes
-
-- Please spend as much time as you feel necessary to complete the task and show off your skills.  
-- We will be looking at code/file structure, code quality & best practices, design & user experience. 
-- Add comments where necessary or to document any assumptions/considerations you may have. 
-- You shouldn't need to use any external libraries 
+### Dependencies
+- I did not add external libraries in order to keep the app simple and easy to review
+> Note If this was my own greefield project I would add the following:
+>  - StyledComponents - improve organization and reusability of styled components
+>  - D3 or Visx - add interactive visualiations e.g. track spend over time, compare business categorys and identify outliers
+>  - FramerMotion - more performant, composible animations e.g. animate showing application details or expanding the nav tree
